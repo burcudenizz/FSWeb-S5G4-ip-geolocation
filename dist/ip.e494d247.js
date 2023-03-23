@@ -13483,6 +13483,7 @@ function ipAdresimiAl() {
 	Örnek dinamik URL kullanımı: var url = "https://apis.ergineer.com/ipgeoapi/"+benimIP; 
 */
 //kodlar buraya gelecek
+//ADIM 3
 function _ipAdresimiAl() {
   _ipAdresimiAl = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -13505,6 +13506,51 @@ function _ipAdresimiAl() {
   }));
   return _ipAdresimiAl.apply(this, arguments);
 }
+function geoOlustur(keys) {
+  var cardBox = document.createElement("div");
+  cardBox.classList.add("card");
+  var imgBox = document.createElement("img");
+  imgBox.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png");
+  cardBox.appendChild(imgBox);
+  var cardInfoBox = document.createElement("div");
+  cardInfoBox.classList.add("card-info");
+  cardBox.appendChild(cardInfoBox);
+  var ipAdress = document.createElement("h3");
+  ipAdress.classList.add("ip");
+  ipAdress.textContent = keys.sorgu;
+  cardInfoBox.appendChild(ipAdress);
+  var ulkeData = document.createElement("p");
+  ulkeData.classList.add("ulke");
+  ulkeData.textContent = "".concat(keys.ülke, " (").concat(keys.ülkeKodu, ") ");
+  cardInfoBox.appendChild(ulkeData);
+  var enlemData = document.createElement("p");
+  enlemData.textContent = "Enlem : ".concat(keys.enlem, " Boylam : ").concat(keys.boylam, " ");
+  cardInfoBox.appendChild(enlemData);
+  var sehirData = document.createElement("p");
+  sehirData.textContent = keys.şehir;
+  cardInfoBox.appendChild(sehirData);
+  var saatData = document.createElement("p");
+  saatData.textContent = keys.saatdilimi;
+  cardInfoBox.appendChild(saatData);
+  var paraData = document.createElement("p");
+  paraData.textContent = keys.parabirimi;
+  cardInfoBox.appendChild(paraData);
+  var ispData = document.createElement("p");
+  ispData.textContent = keys.isp;
+  cardInfoBox.appendChild(ispData);
+  return cardBox;
+}
+//ADIM 4
+var cards = document.querySelector(".cards");
+//ADIM 5
+_axios.default.get("https://apis.ergineer.com/ipgeoapi/95.10.1.241").then(function (response) {
+  cards.appendChild(geoOlustur(response.data));
+  console.log(response);
+  //   const cardDinamik = response.data;
+  //   console.log(cardDinamik);
+}).catch(function (err) {
+  return console.log("Error: " + err);
+});
 },{"axios":"node_modules/axios/index.js","babel-core/register":"node_modules/babel-core/register.js","babel-polyfill":"node_modules/babel-polyfill/lib/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

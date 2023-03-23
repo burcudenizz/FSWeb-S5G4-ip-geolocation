@@ -66,3 +66,64 @@ async function ipAdresimiAl() {
 */
 
 //kodlar buraya gelecek
+
+//ADIM 3
+function geoOlustur(keys) {
+  const cardBox = document.createElement("div");
+  cardBox.classList.add("card");
+
+  const imgBox = document.createElement("img");
+  imgBox.setAttribute(
+    "src",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png"
+  );
+  cardBox.appendChild(imgBox);
+
+  const cardInfoBox = document.createElement("div");
+  cardInfoBox.classList.add("card-info");
+  cardBox.appendChild(cardInfoBox);
+
+  const ipAdress = document.createElement("h3");
+  ipAdress.classList.add("ip");
+  ipAdress.textContent = keys.sorgu;
+  cardInfoBox.appendChild(ipAdress);
+
+  const ulkeData = document.createElement("p");
+  ulkeData.classList.add("ulke");
+  ulkeData.textContent = `${keys.ülke} (${keys.ülkeKodu}) `;
+  cardInfoBox.appendChild(ulkeData);
+
+  const enlemData = document.createElement("p");
+  enlemData.textContent = `Enlem : ${keys.enlem} Boylam : ${keys.boylam} `;
+  cardInfoBox.appendChild(enlemData);
+
+  const sehirData = document.createElement("p");
+  sehirData.textContent = keys.şehir;
+  cardInfoBox.appendChild(sehirData);
+
+  const saatData = document.createElement("p");
+  saatData.textContent = keys.saatdilimi;
+  cardInfoBox.appendChild(saatData);
+
+  const paraData = document.createElement("p");
+  paraData.textContent = keys.parabirimi;
+  cardInfoBox.appendChild(paraData);
+
+  const ispData = document.createElement("p");
+  ispData.textContent = keys.isp;
+  cardInfoBox.appendChild(ispData);
+
+  return cardBox;
+}
+//ADIM 4
+const cards = document.querySelector(".cards");
+//ADIM 5
+axios
+  .get("https://apis.ergineer.com/ipgeoapi/95.10.1.241")
+  .then((response) => {
+    cards.appendChild(geoOlustur(response.data));
+    console.log(response);
+    //   const cardDinamik = response.data;
+    //   console.log(cardDinamik);
+  })
+  .catch((err) => console.log("Error: " + err));
