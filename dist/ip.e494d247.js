@@ -13527,16 +13527,16 @@ function geoOlustur(keys) {
   enlemData.textContent = "Enlem : ".concat(keys.enlem, " Boylam : ").concat(keys.boylam, " ");
   cardInfoBox.appendChild(enlemData);
   var sehirData = document.createElement("p");
-  sehirData.textContent = keys.şehir;
+  sehirData.textContent = "\u015Eehir: ".concat(keys.şehir);
   cardInfoBox.appendChild(sehirData);
   var saatData = document.createElement("p");
-  saatData.textContent = keys.saatdilimi;
+  saatData.textContent = "Saat dilimi: ".concat(keys.saatdilimi);
   cardInfoBox.appendChild(saatData);
   var paraData = document.createElement("p");
-  paraData.textContent = keys.parabirimi;
+  paraData.textContent = "Para dilimi: ".concat(keys.parabirimi);
   cardInfoBox.appendChild(paraData);
   var ispData = document.createElement("p");
-  ispData.textContent = keys.isp;
+  ispData.textContent = "ISP: ".concat(keys.isp);
   cardInfoBox.appendChild(ispData);
   return cardBox;
 }
@@ -13576,7 +13576,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52664" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55775" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

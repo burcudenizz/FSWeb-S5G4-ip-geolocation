@@ -98,19 +98,19 @@ function geoOlustur(keys) {
   cardInfoBox.appendChild(enlemData);
 
   const sehirData = document.createElement("p");
-  sehirData.textContent = keys.şehir;
+  sehirData.textContent = `Şehir: ${keys.şehir}`;
   cardInfoBox.appendChild(sehirData);
 
   const saatData = document.createElement("p");
-  saatData.textContent = keys.saatdilimi;
+  saatData.textContent = `Saat dilimi: ${keys.saatdilimi}`;
   cardInfoBox.appendChild(saatData);
 
   const paraData = document.createElement("p");
-  paraData.textContent = keys.parabirimi;
+  paraData.textContent = `Para dilimi: ${keys.parabirimi}`;
   cardInfoBox.appendChild(paraData);
 
   const ispData = document.createElement("p");
-  ispData.textContent = keys.isp;
+  ispData.textContent = `ISP: ${keys.isp}`;
   cardInfoBox.appendChild(ispData);
 
   return cardBox;
